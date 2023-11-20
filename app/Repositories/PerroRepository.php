@@ -86,6 +86,7 @@ class PerroRepository
         // Obtener los candidatos y preferencias de la solicitud
         $candidatos = $request->candidatos;
         $preferencias = $request->preferencias;
+        $match = false;
 
         // Verificar que haya la misma cantidad de candidatos y preferencias
         if (count($candidatos) != count($preferencias)) {
@@ -106,9 +107,45 @@ class PerroRepository
 
             // Guardar la interacción en la base de datos
             $interaccion->save();
+
+            // Verificar si hay un match
+            if ($interaccion->preferencia === 'aceptado') {
+                $interaccionInversa = Interaccion::where('perro_interesado_id', $perroCandidato->id)
+                    ->where('perro_candidato_id', $perroInteresado->id)
+                    ->where('preferencia', 'aceptado')
+                    ->first();
+
+                if ($interaccionInversa) {
+                    $match = true;
+                }
+            }
         }
 
         // Puedes devolver una respuesta JSON si es necesario
-        return response()->json(['message' => 'Preferencias guardadas correctamente'], 200);
+        return response()->json(['message' => $match ? 'Hay match' : 'Ok'], 200);
+    }
+
+    public function verPerros($id, $interes){
+        // Obtener los perros interesado
+        $perros = Perro::join('interacciones', function ($join) use ($id) {
+            $join->on('perros.id', '=', 'interacciones.perro_candidato_id')
+                ->where('interacciones.perro_interesado_id', '=', $id)
+                ->where('interacciones.preferencia', '=', $interes);
+        })
+        ->select('perros.*')
+        ->get();
+
+        if ($perros->isEmpty()) {
+            return response()->json(['message' => 'No hay perros'], 404);
+        }
+        return response()->json($perros, 200);
+    }
+
+    public function verPerrosAceptados($id){
+        return $this->verPerros($id, 'aceptado');
+    }
+
+    public function verPerrosRechazados($id){
+        return $this->verPerros($id, 'rechazado');
     }
 }
