@@ -10,7 +10,7 @@
 
 Usar el comando:
 
-php artisan migrate:fresh
+```php artisan migrate:fresh```
 
 Para poder migrar las tablas en la base de datos
 
@@ -18,7 +18,7 @@ Para poder migrar las tablas en la base de datos
 
 Usar el comando
 
-php artisan db:seed
+```php artisan db:seed```
 
 Para colocar 10 perros aleatorios en la base de datos
 
