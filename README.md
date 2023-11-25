@@ -1,6 +1,8 @@
 # TDW
-Proyecto 2
-Integrantes: Cristopher Quintana
+
+## Proyecto 2
+
+#### Integrantes: Cristopher Quintana
 
 ## Pasos para ver la API
 
