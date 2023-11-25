@@ -24,3 +24,8 @@ Route::get('verPerro/{id}', [PerroController::class, 'verPerro']);
 Route::post('guardarPerro', [PerroController::class, 'guardarPerro']);
 Route::put('actualizarPerro/{id}', [PerroController::class, 'actualizarPerro']);
 Route::delete('borrarPerro/{id}', [PerroController::class, 'borrarPerro']);
+Route::get('obtenerPerroRandom', [PerroController::class, 'obtenerPerroRandom']);
+Route::get('obtenerPerrosCandidatos/{id}', [PerroController::class, 'obtenerPerrosCandidatos']);
+Route::post('guardarPreferencias/{id}', [PerroController::class, 'guardarPreferencias']);
+Route::get('verPerrosAceptados/{id}', [PerroController::class,'verPerrosAceptados']);
+Route::get('verPerrosRechazados/{id}', [PerroController::class, 'verPerrosRechazados']);

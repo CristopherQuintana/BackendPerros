@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
 
 class InteraccionRequest extends FormRequest
 {
@@ -11,15 +12,14 @@ class InteraccionRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     public function rules()
     {
         return [
-         "nombre"=>"required",
-         "foto"=>"required|url",
-         "descripcion=>required"
+            'candidatos' => 'required|array', // Array requerido
+            'preferencias' => 'required|array', // Array requerido
         ];
     }
 
@@ -29,8 +29,7 @@ class InteraccionRequest extends FormRequest
             'required' => 'El campo :attribute es requerido',
             'integer' => 'El campo :attribute debe ser un número entero',
             'numeric' => 'El campo :attribute debe ser un número',
-            'exists' => 'El :attribute debe existir en nuestro sistema',
-            
+            'exists' => 'El :attribute debe existir en nuestro sistema',  
         ];
     }
 

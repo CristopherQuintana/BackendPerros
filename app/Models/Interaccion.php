@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Interaccion extends Model
 {
+    protected $table = 'interacciones'; 
     use HasFactory;
     protected $fillable = ['perro_interesado_id', 'perro_candidato_id', 'preferencia'];
+    protected $hidden = ['created_at', 'updated_at'];
 
     public function perroInteresado()
     {

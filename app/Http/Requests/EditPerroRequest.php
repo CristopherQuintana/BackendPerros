@@ -5,7 +5,8 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 
-class PerroRequest extends FormRequest
+
+class EditPerroRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -18,9 +19,9 @@ class PerroRequest extends FormRequest
     public function rules()
     {
         return [
-         "nombre"=>"required",
-         "foto"=>"required|url",
-         "descripcion=>required"
+         "nombre"=>"string",
+         "foto"=>"url",
+         "descripcion"=>"string"
         ];
     }
 
@@ -31,7 +32,6 @@ class PerroRequest extends FormRequest
             'integer' => 'El campo :attribute debe ser un número entero',
             'numeric' => 'El campo :attribute debe ser un número',
             'exists' => 'El :attribute debe existir en nuestro sistema',
-            
         ];
     }
 

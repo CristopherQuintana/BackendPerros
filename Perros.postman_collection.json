@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "714609f8-bb92-4a16-8f91-bf681f17fd11",
+		"name": "Perros",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27144882"
+	},
+	"item": [
+		{
+			"name": "Ver Perro",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/verPerro/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"verPerro",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar Perro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/guardarPerro?nombre=Firulais&foto=https://images.dog.ceo/breeds/spaniel-irish/n02102973_4502.jpg&descripcion=Un perro muy fiel",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"guardarPerro"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "Firulais"
+						},
+						{
+							"key": "foto",
+							"value": "https://images.dog.ceo/breeds/spaniel-irish/n02102973_4502.jpg"
+						},
+						{
+							"key": "descripcion",
+							"value": "Un perro muy fiel"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Perro",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/actualizarPerro/11?descripcion=Un perro no muy fiel",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"actualizarPerro",
+						"11"
+					],
+					"query": [
+						{
+							"key": "descripcion",
+							"value": "Un perro no muy fiel"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Perro",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/borrarPerro/11",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"borrarPerro",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Perro Random",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/obtenerPerroRandom",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"obtenerPerroRandom"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Perros Candidatos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/obtenerPerrosCandidatos/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"obtenerPerrosCandidatos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar Preferencias",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"candidatos\":[3,1,8,5,9],\"preferencias\":[\"aceptado\",\"rechazado\",\"aceptado\",\"rechazado\",\"aceptado\"]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/guardarPreferencias/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"guardarPreferencias",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar Preferencias Match",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"candidatos\":[2],\"preferencias\":[\"aceptado\"]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/guardarPreferencias/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"guardarPreferencias",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Perros Aceptados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/verPerrosAceptados/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"verPerrosAceptados",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Perros Rechazados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/verPerrosRechazados/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"verPerrosRechazados",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
