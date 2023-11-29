@@ -21,7 +21,7 @@ class PerroFactory extends Factory
         try{
             $response = Http::get('https://dog.ceo/api/breeds/image/random');
             if($response->successful()){
-                return ["body"=>$response->json(), "status"=> $response->status()];
+                $data = $response->json();
             }
             if($response->failed()){
                 return ["body"=>"fallo de informacion", "status"=> $response->status()];
@@ -39,7 +39,6 @@ class PerroFactory extends Factory
                  "metodo"=> __METHOD__
             ], Response::HTTP_BAD_REQUEST);
         }
-        $data = $response->json();
 
         return [
             'nombre'=> fake()->name(),
